@@ -80,6 +80,13 @@ TEMPLATES = [
     },
 ]
 
+SOCIALACCOUNT_PROVIDERS = {
+    "github": {
+        "SCOPE": ["user", "repo"],
+        "AUTH_PARAMS": {"access_type": "online"},
+    }
+}
+
 WSGI_APPLICATION = "mysite.wsgi.application"
 
 
