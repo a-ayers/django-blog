@@ -1,10 +1,11 @@
 {% load static %}
+{% load socialaccount %} <!-- Ensure this is loaded -->
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>My Django Blog</title> <!-- This is already present -->
+    <title>My Django Blog</title>
     <link type="text/css" rel="stylesheet" href="{% static 'django_blog.css' %}">
 </head>
 
@@ -13,8 +14,9 @@
         <ul id="control-bar">
             {% if user.is_authenticated %}
             <li>Hello {{ user.username }} </li>
-            {% if user.is_staff %}<li><a href="{% url 'admin:index' %}">admin</a>
-            </li>{% endif %}
+            {% if user.is_staff %}
+            <li><a href="{% url 'admin:index' %}">admin</a></li>
+            {% endif %}
             <li><a href="{% url 'logout' %}">logout</a></li>
             {% else %}
             <li><a href="{% url 'account_login' %}">login</a></li>
